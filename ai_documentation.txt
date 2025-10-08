@@ -89,3 +89,47 @@ Now you can select “Python (ligo)” in JupyterLab for your notebook.
 6️⃣ Test
 Open LOSC_Event_tutorial.ipynb → run all cells → no errors. ✅
 "
+
+
+
+Second use of AI: I used ChatGPT to help me with the binder portion of 
+this assignment.
+The prompt I gave it was " how do i fix the scipy blackman/tukey 
+imports for latest scipy?" and this was the response it gave me: 
+"1️⃣ Fix any scipy errors in the notebook
+Before Binder can run your notebook, you need to make sure the code works with the current version of scipy:
+Open LOSC_Event_tutorial.ipynb in JupyterLab.
+Look for any code using:
+from scipy import signal
+signal.blackman(...)
+signal.tukey(...)
+In newer versions of scipy, the functions moved. Replace them with:
+from scipy.signal.windows import blackman, tukey
+blackman(...)
+tukey(...)
+Run the notebook to make sure all cells work without errors. ✅
+". I then asked ChaGPT "How do I check if my binder works?" and 
+ChatGPT responded with:"You can check that you’ve done the scipy fix correctly in a few simple ways:
+1️⃣ Run the notebook cells that use blackman and tukey
+Open LOSC_Event_tutorial.ipynb in JupyterLab.
+Make sure the kernel is set to Python (ligo).
+Run the cells that call blackman(...) or tukey(...):
+w = blackman(10)
+t = tukey(10)
+If these run without errors, your imports are correct. ✅
+2️⃣ Check the imports
+In a new cell, type:
+from scipy.signal.windows import blackman, tukey
+
+print(blackman(5))
+print(tukey(5))
+If this prints arrays without errors, your notebook will run on Binder too.
+3️⃣ Test Binder (optional but recommended)
+Go to mybinder.org
+Enter your repo URL and launch Binder.
+Make sure it opens JupyterLab with LOSC_Event_tutorial.ipynb open.
+Run all cells — they should execute without errors.
+If all three of these pass, then you’ve done the scipy fix 
+correctly. ✅ " I followed these steps to hopefully complete this  
+portion of the assignment successfully. I am still unsure of the why 
+behind this step. 
