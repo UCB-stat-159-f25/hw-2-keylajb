@@ -1,0 +1,91 @@
+I started using ChatGPT at the part of the assignment
+ that says: "A working ligo Conda environment"
+ because I did not know what to type into the ligo file 
+in the environment.yml file. I gave this prompt 
+to ChatGPT: "I made a file environment.yml in my hw-2 
+folder, but there is nothing in it. how do I get the 
+ligo environment in this file? This is the goal of my
+assignment: "You will add to this repository an 
+environment.yml file that creates an environment 
+named ligo, and installs the necessary dependencies 
+to properly run this notebook on our hub. A few 
+important things to keep in mind:
+
+Check the version of Python that the LIGO notebook is 
+using. You will need to explicitly list the Python version
+ in your environment.
+Take advantage of the LIGO Binder (button in repo README)
+ to experiment with which versions of various packages it 
+uses, so that you can add those same ones to your 
+environment (in their original specification, they did 
+not list specific Python versions, so they are frozen in 
+time somewhat by accident based on when the Binder was 
+last built).
+To find a package version, you can print its __version__ 
+attribute after importing it in a Python environment. At 
+the command line, you can also see the available packages 
+in your system using mamba list and pip list respectively 
+(depending on whether they were installed with mamba/conda 
+or pip). You can filter the list of all the installed 
+libraries with the grep command. For example, you can do 
+conda env export | grep numpy to quickly find the numpy 
+version in the environment.
+If a package on Binder has version say 1.2.3, in your 
+environment file you should request only 1.2, without the 
+third digit. Some revision versions (the three version 
+digits are normally known as major.minor.revision) may not
+ always be available identically today, so it’s a bit 
+safer to request version X.Y than to try to get X.Y.Z and 
+have it fail because Z is not available.
+Be careful with one package that you will need to list 
+explicitly in addition to the scientific libraries and 
+ipykernel: decorator. Check its version on Binder. If you 
+don’t request it by X.Y version, you will accidentally get 
+a much newer version that is not compatible with Python 2.7!
+Remember to install the environment for yourself, add its 
+kernel, and start running the notebook on the Stat159 
+DataHub in that environment. You will have to install 
+ipykernel and then create the respective kernel in order 
+for this to work." " and ChatGPT responded 
+with this: "Perfect — you’re ready to fill your 
+environment.yml file with the specifications needed 
+for the LIGO notebook. I’ll walk you step by step.
+1️⃣ Open the file
+If you’re in JupyterLab:
+Click your environment.yml file in the file browser.
+Open it as a text editor.
+Or in the terminal:
+nano environment.yml
+2️⃣ Add the environment specification
+Here’s a ready-to-use template that works for the LIGO notebook (based on typical Binder setup):
+name: ligo
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - numpy=1.26
+  - matplotlib=3.8
+  - scipy=1.12
+  - h5py=3.9
+  - decorator=5.1
+  - ipykernel=6
+Notes:
+name: ligo → this is the name of your environment.
+channels: tells Conda where to download packages.
+dependencies: includes Python and the main libraries your notebook uses.
+Versions are major.minor only to avoid incompatibility.
+3️⃣ Save the file
+In JupyterLab → File → Save
+In terminal (nano) → Ctrl+O → Enter → Ctrl+X
+4️⃣ Create the environment locally
+conda env create -f environment.yml
+conda activate ligo
+This installs Python + all packages exactly as listed.
+Make sure it doesn’t throw any errors.
+5️⃣ Add a Jupyter kernel for the environment
+python -m ipykernel install --user --name=ligo --display-name "Python (ligo)"
+Now you can select “Python (ligo)” in JupyterLab for your notebook.
+6️⃣ Test
+Open LOSC_Event_tutorial.ipynb → run all cells → no errors. ✅
+"
