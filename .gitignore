@@ -1,0 +1,12 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Generated files
+*.png
+*.wav
+*.csv
+*.txt  # optional if you have temporary text files
