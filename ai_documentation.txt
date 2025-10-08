@@ -139,3 +139,27 @@ If all three of these pass, then you’ve done the scipy fix
 correctly. ✅ " I followed these steps to hopefully complete this  
 portion of the assignment successfully. I am still unsure of the why 
 behind this step. 
+
+
+
+
+Third instance of using ai: 
+I asked ChatGPT: how do i do a .gitignore file and what goes in it?"
+I used the response it gave me: "For your homework, your .gitignore might look like:
+# Ignore Python caches
+__pycache__/
+*.pyc
+
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Ignore generated plots, audio, and CSV files
+*.png
+*.wav
+*.csv
+
+# Ignore temporary text files
+*.txt
+This ensures Git only tracks the important files for your homework.
+" 
+I still don't quite understand how to know what goes into this file.
