@@ -89,6 +89,12 @@ Now you can select “Python (ligo)” in JupyterLab for your notebook.
 6️⃣ Test
 Open LOSC_Event_tutorial.ipynb → run all cells → no errors. ✅
 "
+Note: I followed these steps because I didn't fully understand the 
+concept of creating this enviornment and what to put in it. 
+I also did not want to risk breaking the envionrment so I stuck to 
+following directions from AI hoping that I could go back and 
+play around with some of these dependencies after I've figured out 
+what I am doing more than not.
 
 
 
